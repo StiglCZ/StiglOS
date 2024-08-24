@@ -13,6 +13,11 @@ namespace System::Video {
         System::Ports::outb(0x3D4, 0x0E);
         System::Ports::outb(0x3D5, (char) ((pos >> 8) & 0xFF));
     }
+
+    void Console::Move(int x, int y) {
+        if(x != -1) X = x;
+        if(y != -1) Y = y;
+    }
     
     void Console::Write(char c) {
         Buffer[(Y * W + X) * 2] = c;

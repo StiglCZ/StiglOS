@@ -50,29 +50,33 @@ void conv_number(int num) {
     }
     buffer[counter] = 0;
 }
+using System::Video::Console;
 extern "C" {
     
     void isr(isr_regs* regs) {
         u32 code = regs->int_no;
         isrs[code] = 1;
         if(code <= 20) {       // Exceptions
-            System::Video::Console::WriteLine(messages[code]);
-            System::Video::Console::Write(" EAX = "); conv_number(regs->eax);    System::Video::Console::Write(buffer);
-            System::Video::Console::Write(" EBX = "); conv_number(regs->ebx);    System::Video::Console::Write(buffer);
-            System::Video::Console::Write(" ECX = "); conv_number(regs->ecx);    System::Video::Console::Write(buffer);
-            System::Video::Console::Write(" EDX = "); conv_number(regs->edx);    System::Video::Console::Write(buffer);
-            System::Video::Console::Write(" ESP = "); conv_number(regs->esp);    System::Video::Console::Write(buffer);
-            System::Video::Console::Write(" EBP = "); conv_number(regs->ebp);    System::Video::Console::Write(buffer);
-            System::Video::Console::Write(" INT = "); conv_number(regs->int_no); System::Video::Console::Write(buffer);
-            System::Video::Console::WriteLine();
-            System::Video::Console::Write("DS  = "); conv_number(regs->ds);     System::Video::Console::WriteLine(buffer);
-            System::Video::Console::Write("ES  = "); conv_number(regs->es);     System::Video::Console::WriteLine(buffer);
-            System::Video::Console::Write("FS  = "); conv_number(regs->fs);     System::Video::Console::WriteLine(buffer);
-            System::Video::Console::Write("GS  = "); conv_number(regs->gs);     System::Video::Console::WriteLine(buffer);
-            System::Video::Console::Write("SS  = "); conv_number(regs->ss);     System::Video::Console::WriteLine(buffer);
-            System::Video::Console::WriteLine();
-            System::Video::Console::Write("CS:IP = "); conv_number(regs->cs);   System::Video::Console::Write(buffer);
-            System::Video::Console::Write(":"); conv_number(regs->eip);         System::Video::Console::WriteLine(buffer);
+            conv_number(regs->int_no);
+            Console::Write(buffer);
+            Console::WriteLine(messages[code]);
+            
+            Console::WriteLine( "EAX    EBX    ECX    EDX        ESP    EBP");
+            conv_number(regs->eax);  Console::Write(buffer); Console::Move(7, -1);
+            conv_number(regs->ebx);  Console::Write(buffer); Console::Move(14, -1);
+            conv_number(regs->ecx);  Console::Write(buffer); Console::Move(21, -1);
+            conv_number(regs->edx);  Console::Write(buffer); Console::Move(32, -1);
+            conv_number(regs->esp);  Console::Write(buffer); Console::Move(39, -1);
+            conv_number(regs->ebp);  Console::WriteLine(buffer);
+            
+            Console::WriteLine("DS    ES    FS    GS    SS    CS");
+            conv_number(regs->ds);  Console::Write(buffer); Console::Move(6, -1);
+            conv_number(regs->es);  Console::Write(buffer); Console::Move(12, -1);
+            conv_number(regs->fs);  Console::Write(buffer); Console::Move(18, -1);
+            conv_number(regs->gs);  Console::Write(buffer); Console::Move(24, -1);
+            conv_number(regs->ss);  Console::Write(buffer); Console::Move(30, -1);
+            conv_number(regs->cs);  Console::WriteLine(buffer);
+            while(1);
         } else if(code < 32) { // Custom
         } else {               // IRQ
             switch(code) {
