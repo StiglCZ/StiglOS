@@ -61,13 +61,14 @@ extern "C" {
             Console::Write(buffer);
             Console::WriteLine(messages[code]);
             
-            Console::WriteLine( "EAX    EBX    ECX    EDX        ESP    EBP");
+            Console::WriteLine( "EAX    EBX    ECX    EDX        ESP    EBP   EIP");
             conv_number(regs->eax);  Console::Write(buffer); Console::Move(7, -1);
             conv_number(regs->ebx);  Console::Write(buffer); Console::Move(14, -1);
             conv_number(regs->ecx);  Console::Write(buffer); Console::Move(21, -1);
             conv_number(regs->edx);  Console::Write(buffer); Console::Move(32, -1);
             conv_number(regs->esp);  Console::Write(buffer); Console::Move(39, -1);
-            conv_number(regs->ebp);  Console::WriteLine(buffer);
+            conv_number(regs->ebp);  Console::Write(buffer); Console::Move(45, -1);
+            conv_number(regs->eip);  Console::WriteLine(buffer); 
             
             Console::WriteLine("DS    ES    FS    GS    SS    CS");
             conv_number(regs->ds);  Console::Write(buffer); Console::Move(6, -1);
