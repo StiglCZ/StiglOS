@@ -1,5 +1,6 @@
 int main() {
-    // Empty(for now)
-    while(1){}
+    int a;
+    a = 0; // Triggers the interupt
+    while(1) { }
 }
 

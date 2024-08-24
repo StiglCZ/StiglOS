@@ -52,8 +52,8 @@ CODE_SEG equ code - gdt_start
 DATA_SEG equ data - gdt_start
 gdt_start:
 null: dq 0x0000000000000000
-code: dq 0x00CF9A0000000080;FFFF (instead of 0x0080)
-data: dq 0x00CF920000000080;FFFF (instead of 0x0080)
+code: dq 0x00CF9A000000FFFF
+data: dq 0x00CF92000000FFFF
 gdtr:
     dw gdtr - gdt_start - 1
     dd gdt_start
