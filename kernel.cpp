@@ -1,6 +1,7 @@
 int main() {
     int a;
-    a = 0; // Triggers the interupt
-    while(1) { }
+    a = 1; // Triggers the interupt
+    while(a) { }
+    return 0;
 }
 

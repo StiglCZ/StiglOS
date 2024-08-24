@@ -76,7 +76,6 @@ extern "C" {
             conv_number(regs->gs);  Console::Write(buffer); Console::Move(24, -1);
             conv_number(regs->ss);  Console::Write(buffer); Console::Move(30, -1);
             conv_number(regs->cs);  Console::WriteLine(buffer);
-            while(1);
         } else if(code < 32) { // Custom
         } else {               // IRQ
             switch(code) {

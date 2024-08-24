@@ -40,107 +40,107 @@ setup_irq:
     
 isr0:                           ; Divide By Zero
     cli
-    push word 0
+    push dword 0
     jmp handler
 
 isr1:                           ; Debug
     cli
-    push word 1
+    push dword 1
     jmp handler
 
 isr2:                           ; Non-Maskable Interrupt
     cli
-    push word 2
+    push dword 2
     jmp handler
 
 isr3:                           ; Breakpoint
     cli
-    push word 3
+    push dword 3
     jmp handler
 
 isr4:                           ; Overflow
     cli
-    push word 4
+    push dword 4
     jmp handler
 
 isr5:                           ; Bound Range Exceeded
     cli
-    push word 5
+    push dword 5
     jmp handler
 
 isr6:                           ; Invalid OpCode
     cli
-    push word 6
+    push dword 6
     jmp handler
 
 isr7:                           ; Device Not Available
     cli
-    push word 7
+    push dword 7
     jmp handler
 
 isr8:                           ; Double Fault
     cli
-    push word 8
+    push dword 8
     jmp handler
 
 isr9:                           ; Coprocessor Segment Overrun
     cli
-    push word 9
+    push dword 9
     jmp handler
 
 isr10:                          ; Invalid TTS
     cli
-    push word 10
+    push dword 10
     jmp handler
 
 isr11:                          ; Segment Not Present
     cli
-    push word 11
+    push dword 11
     jmp handler
 
 isr12:                          ; Stack Segment Fault
     cli
-    push word 12
+    push dword 12
     jmp handler
 
 isr13:                          ; General Protection Fault
     cli
-    push word 13
+    push dword 13
     jmp handler
 
 isr14:                          ; Page Fault
     cli
-    push word 14
+    push dword 14
     jmp handler
 
 isr15:                          ; x87 Floating-Point Exception
     cli
-    push word 15
+    push dword 15
     jmp handler
 
 isr16:                          ; Alignment Check
     cli
-    push word 16
+    push dword 16
     jmp handler
 
 isr17:                          ; Machine Check
     cli
-    push word 17
+    push dword 17
     jmp handler
 
 isr18:                          ; SIMD Floating Point Exception
     cli
-    push word 18
+    push dword 18
     jmp handler
 
 isr19:                          ; Virtualization Exception
     cli
-    push word 19
+    push dword 19
     jmp handler
 
 isr20:                          ; Security Exception
     cli
-    push word 20
+    push dword 20
     jmp handler
 isr21:                          ; Customs
     jmp $
@@ -166,81 +166,81 @@ isr31:
     jmp $
 isr32:                          ; Programmable Interrupt Timer
     cli
-    push word 32
+    push dword 32
     jmp handler
 isr33:                          ; Keyboard
     cli
-    push word 33
+    push dword 33
     jmp handler
 
 isr34:                          ; Used Internally
     cli
-    push word 34
+    push dword 34
     jmp handler
 
 isr35:                          ; COM2
     cli
-    push word 35
+    push dword 35
     jmp handler
 
 isr36:                          ; COM1
     cli
-    push word 36
+    push dword 36
     jmp handler
 
 isr37:                          ; LPT2
     cli
-    push word 37
+    push dword 37
     jmp handler
 
 isr38:                          ; Floppy disk
     cli
-    push word 38
+    push dword 38
     jmp handler
 
 isr39:                          ; LPT1
     cli
-    push word 39
+    push dword 39
     jmp handler
 
 isr40:                          ; CMOS RTC
     cli
-    push word 40
+    push dword 40
     jmp handler
 
 isr41:                          ; Peripherals
     cli
-    push word 41
+    push dword 41
     jmp handler
 
 isr42:                          ; Peripherals
     cli
-    push word 42
+    push dword 42
     jmp handler
 
 isr43:                          ; Peripherals
     cli
-    push word 43
+    push dword 43
     jmp handler
 
 isr44:                          ; PS/2 Mouse
     cli
-    push word 44
+    push dword 44
     jmp handler
 
 isr45:                          ; FPU / Coprocessor / Inter-processor
     cli
-    push word 45
+    push dword 45
     jmp handler
 
 isr46:                          ; Primary ATA Hard Disk
     cli
-    push word 46
+    push dword 46
     jmp handler
 
 isr47:                          ; Secondary ATA Hard Disk
     cli
-    push word 47
+    push dword 47
     jmp handler
 handler:                        ; Error code in stack    
     pusha
