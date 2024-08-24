@@ -11,7 +11,7 @@ segments:
     mov gs, ax
     mov ss, ax
 stack:
-    mov sp, 0x7c00
+    mov sp, 0x7e00
     mov bp, sp
 disk:
     mov ax, 0x0220
@@ -25,11 +25,11 @@ video:
     mov ax, 0x03
     int 10h
 a20:
-    cli
     in al, 0x92
     or al, 0x02
     out 0x92, al
 mode32:
+    cli
     lgdt [gdtr]
     mov eax, cr0
     or eax, 1
